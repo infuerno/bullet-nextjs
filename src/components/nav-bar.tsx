@@ -1,3 +1,4 @@
+import { format } from "date-fns";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import {
@@ -21,7 +22,19 @@ export function NavBar() {
           </NavigationMenuItem>
           <NavigationMenuItem>
             <Button asChild variant="ghost">
-              <Link href="/today">Today</Link>
+              <Link href={`/day/${format(new Date(), "yyyy-MM-dd")}`}>
+                Today
+              </Link>
+            </Button>
+          </NavigationMenuItem>
+          <NavigationMenuItem>
+            <Button asChild variant="ghost">
+              <Link href="/future">Future</Link>
+            </Button>
+          </NavigationMenuItem>
+          <NavigationMenuItem>
+            <Button asChild variant="ghost">
+              <Link href="/tags">Tags</Link>
             </Button>
           </NavigationMenuItem>
         </NavigationMenuList>
