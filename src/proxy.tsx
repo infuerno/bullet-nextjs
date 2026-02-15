@@ -1,7 +1,7 @@
 import { type NextRequest, NextResponse } from "next/server";
 import { stackServerApp } from "@/stack/server";
 
-export async function middleware(request: NextRequest) {
+export async function proxy(request: NextRequest) {
   const user = await stackServerApp.getUser();
   if (!user) {
     return NextResponse.redirect(new URL("/handler/signin", request.url));
