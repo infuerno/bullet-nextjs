@@ -1,13 +1,12 @@
-//use "server" (this is the default)
+"use server";
 
 import { stackServerApp } from "@/stack/server";
+import type { EntryInput } from "@/app/types/entry";
+import { entries } from "@/data/entries";
 
-export type EntryInput = {
-  type: string;
-  date: Date;
-  content: string;
-  completed: boolean;
-};
+export async function getEntries() {
+  return entries;
+}
 
 export async function createEntry(data: EntryInput) {
   const user = await stackServerApp.getUser();
